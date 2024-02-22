@@ -12,36 +12,6 @@
 
   <!-- TODO #1 - Use a loop to display job results in a table. -->
 
-  <form th:action="@{/search/results}" method = "post">
-    <h2>Search by:</h2>
-
-    <p>
-            <span th:each="column : ${columns}">
-                <label>
-<input
-        type="radio"
-        name="searchType"
-        th:id="${column.key}"
-        th:value="${column.key}"
-        th:checked="${column.key == 'all'}"/>
-</label>
-                <label th:for="${column.key}" th:text="${column.value}"></label>
-            </span>
-
-    </p>
-
-    <p>
-      <label for="searchTerm">Keyword:</label>
-      <input type="text" name="searchTerm" id="searchTerm" />
-    </p>
-
-    <input type="submit" value="Search" />
-  </form>
-
-  <hr />
-
-  <!-- TODO #4 - Loop over the search results to display all job fields. -->
-
   <table th:fragment= "jobTable" th:each = "job : ${jobs}" class="job-listing">
     <tr>
       <td>ID</td>
